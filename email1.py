@@ -3,7 +3,6 @@ from email import message                     ##--> From Email Module importing 
 import smtplib as s                           ##--> smtplib Module as SMTP connection
 from Current_Weather_API import Weather_detail##--> Made Module for extracting weather details
 from datetime import date		              ##--> For printing Date in log file 
-import mysql.connector
 
 today = date.today()
 
@@ -38,13 +37,13 @@ def get_weather_details(cities):
 def sending(name, addresss, city_name, detail):                                ##--> Method to send mails to subscribed users
     ob = s.SMTP("smtp.gmail.com", 587)
     ob.starttls()
-    ob.login("botofsmitpanchal@gmail.com", "botofsmitpanchal123")
+    ob.login("your-mailid@gmail.com", "your-passwd")
     subject = f"Today's Weather for you {name}"
     body    = "City : {}\nWeather Type : {}\nTemperature(C) : {}\n".format(city_name, detail[1], detail[2])
     message = "Subject:{}\n\n{}".format(subject, body)
     listofAddress = addresss  ##--> Subscribed User
     try:
-        ob.sendmail("botofsmitpanchal@gmail.com", listofAddress, message)
+        ob.sendmail("your-mailidl@gmail.com", listofAddress, message)
     except:
         pass
 
