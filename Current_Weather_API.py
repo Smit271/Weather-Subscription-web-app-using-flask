@@ -8,7 +8,7 @@ class Weather_detail():
     def weather(self):          ##--> method of extracting weather detail from openweathermap API 
         baseurl = 'https://api.openweathermap.org/data/2.5/weather'
         params_dict = {}
-        params_dict["APPID"] = '73e1c5ed8a461e6d28983aa53f2faffc'
+        params_dict["APPID"] = 'your-api-key'
         #params_dict['zip'] = input("Enter City")  --by zip code
         #params_dict['q'] = input("Enter City Name : \t")
         try :
