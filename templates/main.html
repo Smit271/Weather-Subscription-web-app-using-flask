@@ -1,0 +1,45 @@
+<!-- Its just extending layout html which is common between pages-->
+{% extends "layout.html" %}
+{% block content %}
+	<h1>Weather Subsciption</h1>
+  <p> Just register yourself to get daily weather updates</p>
+  <div class="content-section">
+    <form method="POST" action="">
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Search Weather of any city</legend>
+            <div class="form-group">
+                {{ form.city_name.label(class="form-control-label") }}
+                {% if form.city_name.errors %}
+                    {{ form.city_name(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.city_name.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.city_name(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+        </fieldset>
+        <div class="form-group">
+            {{ form.search(class="btn btn-outline-info") }}
+        </div>
+    </form>
+    {% if result %}
+        <div class="box">
+            <article class="media">
+                <div class="media-content">
+                    <div class="content">
+                        <p>
+                            <span class="title">{{ result[0] }}</span>
+                            <br>
+                            <span class="subtitle">{{ result[2] }}° C</span>
+                            <br> {{ result[1] }}
+                        </p>
+                    </div>
+                </div>
+            </article>
+        </div>
+      {% endif %}
+</div>
+{% endblock %}
