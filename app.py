@@ -5,7 +5,7 @@ from Current_Weather_API import Weather_detail
 
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'asdv1asdc91v9ads8vcs5xc'
+app.config['SECRET_KEY'] = 'create your own secret key'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///subscribers.db'
 db = SQLAlchemy(app)
 
